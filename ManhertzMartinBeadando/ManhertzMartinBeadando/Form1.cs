@@ -42,8 +42,8 @@ namespace ManhertzMartinBeadando
             ball.Top = 10;
             panel1.Controls.Add(ball);
             ball = Factory.CreateNew();
-            x = 100;
-            y = 100;
+            x = 740;
+            y = 426;
             ball.Left = x;
             ball.Top = y;
             panel1.Controls.Add(ball);
