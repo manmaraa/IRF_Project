@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ManhertzMartinBeadando
 {
     public partial class Form1 : Form
     {
+       Random rnd = new Random();
+        
         int x = 0;
         int y = 0;
         private List<Ball> _balls = new List<Ball>();
@@ -29,7 +32,19 @@ namespace ManhertzMartinBeadando
         {
             InitializeComponent();
             Factory = new BallFactory();
-         
+            List<int> x = new List<int>();
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load("koordinatak.xml");
+            XmlNodeList xkoordinata = xDoc.GetElementsByTagName("X");
+            XmlNodeList ykoordinata = xDoc.GetElementsByTagName("Y");
+            XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
+            int r = rnd.Next(1, 44);
+            
+            foreach (XmlElement item in xkoordinata)
+            {
+                
+               
+            }
         }
         
 
@@ -42,12 +57,12 @@ namespace ManhertzMartinBeadando
             ball.Top = 10;
             panel1.Controls.Add(ball);
             ball = Factory.CreateNew();
-            x = 740;
-            y = 426;
+            x = 200;
+            y = 226;
             ball.Left = x;
             ball.Top = y;
             panel1.Controls.Add(ball);
-
+           
         }
 
       
