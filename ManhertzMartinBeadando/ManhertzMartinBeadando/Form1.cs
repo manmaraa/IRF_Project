@@ -16,8 +16,8 @@ namespace ManhertzMartinBeadando
     {
        Random rnd = new Random();
         
-        int x = 0;
-        int y = 0;
+        int xHely = 0;
+        int yHely = 0;
         private List<Ball> _balls = new List<Ball>();
         private BallFactory _factory;
         public BallFactory Factory
@@ -42,8 +42,12 @@ namespace ManhertzMartinBeadando
             
             foreach (XmlElement item in xkoordinata)
             {
-                
-               
+            
+                xHely = Convert.ToInt32(xkoordinata[r]);
+            }
+            foreach (XmlElement item in ykoordinata)
+            {
+                yHely = Convert.ToInt32(ykoordinata[r]);
             }
         }
         
