@@ -38,16 +38,17 @@ namespace ManhertzMartinBeadando
             XmlNodeList xkoordinata = xDoc.GetElementsByTagName("X");
             XmlNodeList ykoordinata = xDoc.GetElementsByTagName("Y");
             XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
-            int r = rnd.Next(1, 44);
             
+            int r = rnd.Next(1, 44);
+
             foreach (XmlElement item in xkoordinata)
             {
-            
-                xHely = Convert.ToInt32(xkoordinata[r]);
+                xHely = Convert.ToInt32(xkoordinata[r].InnerText);
             }
             foreach (XmlElement item in ykoordinata)
             {
-                yHely = Convert.ToInt32(ykoordinata[r]);
+                yHely = Convert.ToInt32(ykoordinata[r].InnerText);
+
             }
         }
         
@@ -61,10 +62,12 @@ namespace ManhertzMartinBeadando
             ball.Top = 10;
             panel1.Controls.Add(ball);
             ball = Factory.CreateNew();
-            x = 200;
-            y = 226;
-            ball.Left = x;
-            ball.Top = y;
+          
+            ball.Left = xHely;
+            ball.Top = yHely;
+
+            MessageBox.Show(xHely.ToString());
+            MessageBox.Show(yHely.ToString());
             panel1.Controls.Add(ball);
            
         }
