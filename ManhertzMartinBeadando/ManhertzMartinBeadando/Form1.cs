@@ -105,7 +105,7 @@ namespace ManhertzMartinBeadando
             {
                 foreach (var ball in _balls1)
                 {
-                    if (ball.Top >= 0)
+                    if (ball.Top <= panel1.Height-50)
                     {
                         ball.MoveBallDown();
                     }
@@ -117,7 +117,7 @@ namespace ManhertzMartinBeadando
             {
                 foreach (var ball in _balls1)
                 {
-                    if (ball.Top >= 0)
+                    if (ball.Left >= 0)
                     {
                         ball.MoveBallLeft();
                     }
@@ -129,7 +129,7 @@ namespace ManhertzMartinBeadando
             {
                 foreach (var ball in _balls1)
                 {
-                    if (ball.Top >= 0)
+                    if (ball.Left <= panel1.Width-50)
                     {
                         ball.MoveBallRight();
                     }
