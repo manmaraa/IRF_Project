@@ -18,7 +18,8 @@ namespace ManhertzMartinBeadando
         
         int xHely = 0;
         int yHely = 0;
-        private List<Ball> _balls = new List<Ball>();
+        private List<Ball> _balls1 = new List<Ball>();
+        private List<Ball> _balls2 = new List<Ball>();
         private BallFactory _factory;
         public BallFactory Factory
         {
@@ -50,35 +51,47 @@ namespace ManhertzMartinBeadando
                 yHely = Convert.ToInt32(ykoordinata[r].InnerText);
 
             }
+            
         }
+        
         
 
         private void button1_Click(object sender, EventArgs e)
         {
             var ball = Factory.CreateNew();
-            _balls.Add(ball);
-            
             ball.Left = 10;
             ball.Top = 10;
+            _balls1.Add(ball);
+            
+           
+           
             panel1.Controls.Add(ball);
             ball = Factory.CreateNew();
           
             ball.Left = xHely;
             ball.Top = yHely;
-
+            _balls2.Add(ball);
             MessageBox.Show(xHely.ToString());
             MessageBox.Show(yHely.ToString());
             panel1.Controls.Add(ball);
-           
+          
         }
 
       
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-           
+            foreach (var ball in _balls1)
+            {
+                if (xHely-ball.Left <=10&&  yHely-ball.Top <= 10 && ball.Top-yHely <= 10&&  ball.Left-xHely <= 10)
+                {
+                    panel1.Controls.Remove(ball);
+                }
+            }
+
+
             if (keyData == Keys.Up)
             {
-                foreach (var ball in _balls)
+                foreach (var ball in _balls1)
                 {
                     if (ball.Top >= 0)
                     {
@@ -90,7 +103,7 @@ namespace ManhertzMartinBeadando
             
             if (keyData == Keys.Down)
             {
-                foreach (var ball in _balls)
+                foreach (var ball in _balls1)
                 {
                     if (ball.Top >= 0)
                     {
@@ -102,7 +115,7 @@ namespace ManhertzMartinBeadando
           
             if (keyData == Keys.Left)
             {
-                foreach (var ball in _balls)
+                foreach (var ball in _balls1)
                 {
                     if (ball.Top >= 0)
                     {
@@ -114,7 +127,7 @@ namespace ManhertzMartinBeadando
        
             if (keyData == Keys.Right)
             {
-                foreach (var ball in _balls)
+                foreach (var ball in _balls1)
                 {
                     if (ball.Top >= 0)
                     {
