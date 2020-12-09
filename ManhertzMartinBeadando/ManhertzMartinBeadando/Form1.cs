@@ -14,6 +14,7 @@ namespace ManhertzMartinBeadando
 {
     public partial class Form1 : Form
     {
+        bool megy = false;
        Random rnd = new Random();
         
         int xHely = 0;
@@ -38,9 +39,9 @@ namespace ManhertzMartinBeadando
             xDoc.Load("koordinatak.xml");
             XmlNodeList xkoordinata = xDoc.GetElementsByTagName("X");
             XmlNodeList ykoordinata = xDoc.GetElementsByTagName("Y");
-            XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
+          //  XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
             
-            int r = rnd.Next(1, 44);
+            int r = rnd.Next(0, 43);
 
             foreach (XmlElement item in xkoordinata)
             {
@@ -58,23 +59,29 @@ namespace ManhertzMartinBeadando
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var ball = Factory.CreateNew();
-            ball.Left = 10;
-            ball.Top = 10;
-            _balls1.Add(ball);
-            
-           
-           
-            panel1.Controls.Add(ball);
-            ball = Factory.CreateNew();
           
-            ball.Left = xHely;
-            ball.Top = yHely;
-            _balls2.Add(ball);
-            MessageBox.Show(xHely.ToString());
-            MessageBox.Show(yHely.ToString());
-            panel1.Controls.Add(ball);
-          
+            if (megy == false)
+            {
+                var ball = Factory.CreateNew();
+                ball.Left = 10;
+                ball.Top = 10;
+                _balls1.Add(ball);
+
+
+
+                panel1.Controls.Add(ball);
+                ball = Factory.CreateNew();
+
+                ball.Left = xHely;
+                ball.Top = yHely;
+                _balls2.Add(ball);
+                MessageBox.Show(xHely.ToString());
+                MessageBox.Show(yHely.ToString());
+                panel1.Controls.Add(ball);
+            }
+            megy = true;
+
+
         }
 
       
@@ -85,6 +92,7 @@ namespace ManhertzMartinBeadando
                 if (xHely-ball.Left <=10&&  yHely-ball.Top <= 10 && ball.Top-yHely <= 10&&  ball.Left-xHely <= 10)
                 {
                     panel1.Controls.Remove(ball);
+                    megy = false;
                 }
             }
 
