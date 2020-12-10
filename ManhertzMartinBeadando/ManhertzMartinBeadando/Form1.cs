@@ -14,54 +14,74 @@ namespace ManhertzMartinBeadando
 {
     public partial class Form1 : Form
     {
+        bool megtalalta = false;
+        int r=0;
         bool megy = false;
        Random rnd = new Random();
         
         int xHely = 0;
         int yHely = 0;
         private List<Ball> _balls1 = new List<Ball>();
-        private List<Ball> _balls2 = new List<Ball>();
+
+       // private List<Ball> _balls2 = new List<Ball>();
+        private List<Cel> _celok = new List<Cel>();
         private BallFactory _factory;
         public BallFactory Factory
         {
             get { return _factory; }
             set { _factory = value; }
         }
+        private CelFactory _cfactory;
+        public CelFactory CFactory
+        {
+            get { return _cfactory; }
+            set { _cfactory = value; }
+        }
 
-     
+
 
         public Form1()
         {
             InitializeComponent();
             Factory = new BallFactory();
-            List<int> x = new List<int>();
+            CFactory = new CelFactory();
+            //List<int> x = new List<int>();
+            R();
+        }
+     void R()
+        {
+
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("koordinatak.xml");
             XmlNodeList xkoordinata = xDoc.GetElementsByTagName("X");
             XmlNodeList ykoordinata = xDoc.GetElementsByTagName("Y");
-          //  XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
-            
-            int r = rnd.Next(0, 43);
+            //  XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
 
+
+            r = rnd.Next(0, 43);
             foreach (XmlElement item in xkoordinata)
             {
+                
+                
                 xHely = Convert.ToInt32(xkoordinata[r].InnerText);
+                
             }
             foreach (XmlElement item in ykoordinata)
             {
                 yHely = Convert.ToInt32(ykoordinata[r].InnerText);
 
             }
-            
+
         }
-        
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+         
             if (megy == false)
             {
+                MessageBox.Show("Keresse meg a kék golyóval a pirosat a győzelem érdekében!!");
+
                 var ball = Factory.CreateNew();
                 ball.Left = 10;
                 ball.Top = 10;
@@ -70,14 +90,14 @@ namespace ManhertzMartinBeadando
 
 
                 panel1.Controls.Add(ball);
-                ball = Factory.CreateNew();
+                var cel = CFactory.CreateNew();
 
-                ball.Left = xHely;
-                ball.Top = yHely;
-                _balls2.Add(ball);
-                MessageBox.Show(xHely.ToString());
-                MessageBox.Show(yHely.ToString());
-                panel1.Controls.Add(ball);
+                cel.Left = xHely;
+                cel.Top = yHely;
+                _celok.Add(cel);
+               /* MessageBox.Show(xHely.ToString());
+                MessageBox.Show(yHely.ToString());*/
+                panel1.Controls.Add(cel);
             }
             megy = true;
 
@@ -87,15 +107,31 @@ namespace ManhertzMartinBeadando
       
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (megtalalta==true)
+            {
+                foreach (var ball in _balls1)
+                { 
+                    MessageBox.Show("Gratulálunk megtaláltad a labdát");
+
+                panel1.Controls.Remove(ball);
+                panel1.Controls.Clear();
+                ball.Left = 10;
+                ball.Top = 10;
+                megy = false;
+                    megtalalta = false;
+                    break;
+                }
+                R();
+            }
             foreach (var ball in _balls1)
             {
-                if (xHely-ball.Left <=10&&  yHely-ball.Top <= 10 && ball.Top-yHely <= 10&&  ball.Left-xHely <= 10)
+                if (xHely-ball.Left <=30&&  yHely-ball.Top <= 30 && ball.Top-yHely <= 30&&  ball.Left-xHely <= 30)
                 {
-                    panel1.Controls.Remove(ball);
-                    megy = false;
+                    megtalalta = true;
+                    
+                    
                 }
             }
-
 
             if (keyData == Keys.Up)
             {
@@ -147,5 +183,10 @@ namespace ManhertzMartinBeadando
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+        }
     }
 }

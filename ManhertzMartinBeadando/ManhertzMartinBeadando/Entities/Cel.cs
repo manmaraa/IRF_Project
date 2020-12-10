@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ManhertzMartinBeadando.Entities
 {
-    class Cel:Label
+   public class Cel:Label
     {
         public Cel()
         {
@@ -27,8 +27,10 @@ namespace ManhertzMartinBeadando.Entities
 
         protected void DrawImage(Graphics g)
         {
+          
             g.FillEllipse(new SolidBrush(Color.Red), 0, 0, Width, Height);
-            //g.DrawRectangles(new SolidBrush(Color.Red), 0, 0, Width, Height);
+            
+
         }
     }
 }

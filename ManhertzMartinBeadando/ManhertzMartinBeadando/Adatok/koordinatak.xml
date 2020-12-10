@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<record>
-		<X>10</X>
+		<X>400</X>
+		<Y>100</Y>
+		<I>0</I>
+	</record>
+            <record>
+		<X>100</X>
 		<Y>10</Y>
 		<I>1</I>
 	</record>
 	<record>
 		<X>40</X>
-		<Y>20</Y>
+		<Y>250</Y>
 		<I>2</I>
 	</record>
 	<record>
 		<X>60</X>
-		<Y>30</Y>
+		<Y>362</Y>
 		<I>3</I>
 	</record>
 	<record>
-		<X>80</X>
-		<Y>40</Y>
+		<X>180</X>
+		<Y>200</Y>
 		<I>4</I>
 	</record>
 	<record>
 		<X>105</X>
-		<Y>50</Y>
+		<Y>150</Y>
 		<I>5</I>
 	</record>
 	<record>
 		<X>128</X>
-		<Y>60</Y>
+		<Y>260</Y>
 		<I>6</I>
 	</record>
 	<record>
@@ -82,16 +87,16 @@
 	</record>
 	<record>
 		<X>480</X>
-		<Y>170</Y>
+		<Y>172</Y>
 		<I>17</I>
 	</record>
 	<record>
 		<X>530</X>
-		<Y>180</Y>
+		<Y>182</Y>
 		<I>18</I>
 	</record>
 	<record>
-		<X>579</X>
+		<X>570</X>
 		<Y>190</Y>
 		<I>19</I>
 	</record>
