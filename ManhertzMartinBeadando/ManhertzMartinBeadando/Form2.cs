@@ -36,17 +36,30 @@ namespace ManhertzMartinBeadando
 
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
+                sw.Write(comboBox1.Text);
+                sw.WriteLine(";");
+                
                 foreach (var item in kerdesek)
                 {
-                    kerdesek.Add(textBox1.Text);
-                }
-                foreach (var item in kerdesek)
-                {
-                    sw.WriteLine(item);
+                    sw.Write(item);
+                    sw.WriteLine(";");
+
                 }
                
             }
         }
-        
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+             
+                kerdesek.Add(textBox1.Text);
+                textBox1.Text = "";
+            
+        }
     }
 }

@@ -1,223 +1,215 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<record>
-		<X>400</X>
-		<Y>100</Y>
-		<I>0</I>
-	</record>
-            <record>
-		<X>100</X>
+		<X>950</X>
 		<Y>10</Y>
-		<I>1</I>
 	</record>
 	<record>
-		<X>40</X>
-		<Y>250</Y>
-		<I>2</I>
+		<X>350</X>
+		<Y>20</Y>
 	</record>
 	<record>
-		<X>60</X>
-		<Y>362</Y>
-		<I>3</I>
+		<X>786</X>
+		<Y>30</Y>
 	</record>
 	<record>
-		<X>180</X>
-		<Y>200</Y>
-		<I>4</I>
+		<X>80</X>
+		<Y>40</Y>
 	</record>
 	<record>
 		<X>105</X>
-		<Y>150</Y>
-		<I>5</I>
+		<Y>50</Y>
 	</record>
 	<record>
 		<X>128</X>
-		<Y>260</Y>
-		<I>6</I>
+		<Y>60</Y>
 	</record>
 	<record>
 		<X>151</X>
 		<Y>70</Y>
-		<I>7</I>
 	</record>
 	<record>
 		<X>174</X>
 		<Y>80</Y>
-		<I>8</I>
 	</record>
 	<record>
 		<X>197</X>
 		<Y>90</Y>
-		<I>9</I>
 	</record>
 	<record>
 		<X>220</X>
 		<Y>100</Y>
-		<I>10</I>
 	</record>
 	<record>
 		<X>243</X>
 		<Y>110</Y>
-		<I>11</I>
 	</record>
 	<record>
 		<X>266</X>
 		<Y>120</Y>
-		<I>12</I>
 	</record>
 	<record>
 		<X>289</X>
 		<Y>130</Y>
-		<I>13</I>
 	</record>
 	<record>
 		<X>320</X>
 		<Y>140</Y>
-		<I>14</I>
 	</record>
 	<record>
 		<X>400</X>
 		<Y>150</Y>
-		<I>15</I>
 	</record>
 	<record>
 		<X>430</X>
 		<Y>160</Y>
-		<I>16</I>
 	</record>
 	<record>
 		<X>480</X>
-		<Y>172</Y>
-		<I>17</I>
+		<Y>170</Y>
 	</record>
 	<record>
 		<X>530</X>
-		<Y>182</Y>
-		<I>18</I>
+		<Y>180</Y>
 	</record>
 	<record>
-		<X>570</X>
+		<X>580</X>
 		<Y>190</Y>
-		<I>19</I>
 	</record>
 	<record>
-		<X>628</X>
+		<X>620</X>
 		<Y>200</Y>
-		<I>20</I>
 	</record>
 	<record>
 		<X>677</X>
 		<Y>210</Y>
-		<I>21</I>
 	</record>
 	<record>
-		<X>726</X>
+		<X>720</X>
 		<Y>220</Y>
-		<I>22</I>
 	</record>
 	<record>
 		<X>10</X>
 		<Y>230</Y>
-		<I>23</I>
 	</record>
 	<record>
 		<X>40</X>
 		<Y>240</Y>
-		<I>24</I>
 	</record>
 	<record>
 		<X>60</X>
 		<Y>250</Y>
-		<I>25</I>
 	</record>
 	<record>
 		<X>80</X>
 		<Y>260</Y>
-		<I>26</I>
 	</record>
 	<record>
 		<X>105</X>
 		<Y>270</Y>
-		<I>27</I>
 	</record>
 	<record>
 		<X>128</X>
 		<Y>280</Y>
-		<I>28</I>
 	</record>
 	<record>
 		<X>151</X>
 		<Y>290</Y>
-		<I>29</I>
 	</record>
 	<record>
 		<X>174</X>
 		<Y>300</Y>
-		<I>30</I>
 	</record>
 	<record>
 		<X>197</X>
 		<Y>310</Y>
-		<I>31</I>
 	</record>
 	<record>
 		<X>220</X>
 		<Y>320</Y>
-		<I>32</I>
 	</record>
 	<record>
 		<X>243</X>
 		<Y>330</Y>
-		<I>33</I>
 	</record>
 	<record>
 		<X>266</X>
 		<Y>340</Y>
-		<I>34</I>
 	</record>
 	<record>
 		<X>289</X>
 		<Y>350</Y>
-		<I>35</I>
 	</record>
 	<record>
 		<X>312</X>
 		<Y>360</Y>
-		<I>36</I>
 	</record>
 	<record>
 		<X>335</X>
 		<Y>370</Y>
-		<I>37</I>
 	</record>
 	<record>
 		<X>358</X>
 		<Y>380</Y>
-		<I>38</I>
 	</record>
 	<record>
 		<X>381</X>
 		<Y>390</Y>
-		<I>39</I>
 	</record>
 	<record>
 		<X>404</X>
 		<Y>400</Y>
-		<I>40</I>
 	</record>
 	<record>
 		<X>427</X>
 		<Y>410</Y>
-		<I>41</I>
 	</record>
 	<record>
 		<X>450</X>
 		<Y>420</Y>
-		<I>42</I>
 	</record>
 	<record>
 		<X>463</X>
 		<Y>430</Y>
-		<I>43</I>
+	</record>
+	<record>
+		<X>765</X>
+		<Y>460</Y>
+	</record>
+	<record>
+		<X>867</X>
+		<Y>490</Y>
+	</record>
+	<record>
+		<X>126</X>
+		<Y>140</Y>
+	</record>
+	<record>
+		<X>540</X>
+		<Y>400</Y>
+	</record>
+	<record>
+		<X>889</X>
+		<Y>350</Y>
+	</record>
+	<record>
+		<X>404</X>
+		<Y>256</Y>
+	</record>
+	<record>
+		<X>521</X>
+		<Y>210</Y>
+	</record>
+	<record>
+		<X>587</X>
+		<Y>320</Y>
+	</record>
+	<record>
+		<X>875</X>
+		<Y>412</Y>
+	</record>
+	<record>
+		<X>279</X>
+		<Y>222</Y>
 	</record>
 </data-set>

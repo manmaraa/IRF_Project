@@ -14,6 +14,7 @@ namespace ManhertzMartinBeadando
 {
     public partial class Form1 : Form
     {
+        double kerek = 0;
         bool megtalalta = false;
         int r=0;
         bool megy = false;
@@ -55,26 +56,21 @@ namespace ManhertzMartinBeadando
             xDoc.Load("koordinatak.xml");
             XmlNodeList xkoordinata = xDoc.GetElementsByTagName("X");
             XmlNodeList ykoordinata = xDoc.GetElementsByTagName("Y");
-            //  XmlNodeList koordinataSzam = xDoc.GetElementsByTagName("I");
 
+            r = rnd.Next(0, 53);
 
-            r = rnd.Next(0, 43);
-            foreach (XmlElement item in xkoordinata)
+                foreach (XmlElement item in xkoordinata)
             {
-                
-                
-                xHely = Convert.ToInt32(xkoordinata[r].InnerText);
-                
-            }
-            foreach (XmlElement item in ykoordinata)
-            {
-                yHely = Convert.ToInt32(ykoordinata[r].InnerText);
+                for (int i = 0; i < 53; i++)
+                {
 
-            }
+                
+                    yHely = Convert.ToInt32(ykoordinata[i].InnerText);
+                   xHely = Convert.ToInt32(xkoordinata[r].InnerText);
+                }
 
+            }  
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
          
@@ -86,9 +82,6 @@ namespace ManhertzMartinBeadando
                 ball.Left = 10;
                 ball.Top = 10;
                 _balls1.Add(ball);
-
-
-
                 panel1.Controls.Add(ball);
                 var cel = CFactory.CreateNew();
 
@@ -121,15 +114,25 @@ namespace ManhertzMartinBeadando
                     megtalalta = false;
                     break;
                 }
+                foreach (var cel1 in _celok)
+                {
+                    cel1.Left = 2000;
+                    cel1.Top =2000 ;
+                }
                 R();
             }
             foreach (var ball in _balls1)
             {
-                if (xHely-ball.Left <=30&&  yHely-ball.Top <= 30 && ball.Top-yHely <= 30&&  ball.Left-xHely <= 30)
+                foreach (var cel in _celok)
+                {
+
+                
+                if (cel.Left-ball.Left <=50&&  cel.Top-ball.Top <= 50 && ball.Top-cel.Top <= 50&&  ball.Left-cel.Left <= 50)
                 {
                     megtalalta = true;
                     
                     
+                }
                 }
             }
 
@@ -140,6 +143,13 @@ namespace ManhertzMartinBeadando
                     if (ball.Top >= 0)
                     {
                         ball.MoveBallUp();
+                    }
+                }
+                foreach (var ball in _celok)
+                {
+                    if (ball.Top >= 0)
+                    {
+                        ball.MoveBallDown();
                     }
                 }
                 return true;
@@ -154,6 +164,13 @@ namespace ManhertzMartinBeadando
                         ball.MoveBallDown();
                     }
                 }
+                foreach (var ball in _celok)
+                {
+                    if (ball.Top >= 0)
+                    {
+                        ball.MoveBallUp();
+                    }
+                }
                 return true;
             }
           
@@ -164,6 +181,13 @@ namespace ManhertzMartinBeadando
                     if (ball.Left >= 0)
                     {
                         ball.MoveBallLeft();
+                    }
+                }
+                foreach (var ball in _celok)
+                {
+                    if (ball.Top >= 0)
+                    {
+                        ball.MoveBallRight();
                     }
                 }
                 return true;
@@ -178,6 +202,13 @@ namespace ManhertzMartinBeadando
                         ball.MoveBallRight();
                     }
                 }
+                foreach (var ball in _celok)
+                {
+                    if (ball.Top >= 0)
+                    {
+                        ball.MoveBallLeft();
+                    }
+                }
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -187,6 +218,11 @@ namespace ManhertzMartinBeadando
         {
             Form2 f2 = new Form2();
             f2.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kattintson az \"új játék\" gombra, a játék elkezdéséhez. A nyilakkal irányítsa a kék golyót, hogy megtalálja a pirosat. De vigyázz a piros golyó is mozog!!! Amint a kék golyóval ráment a piros golyóra Ön győzött. A piros golyó minden játék alkalmával más-más pozíciót vesz fel");
         }
     }
 }

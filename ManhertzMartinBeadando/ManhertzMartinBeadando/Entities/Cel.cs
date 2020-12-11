@@ -32,5 +32,21 @@ namespace ManhertzMartinBeadando.Entities
             
 
         }
+        public void MoveBallLeft()
+        {
+            Left -= 4;
+        }
+        public void MoveBallRight()
+        {
+            Left += 4;
+        }
+        public void MoveBallDown()
+        {
+            Top += 4;
+        }
+        public void MoveBallUp()
+        {
+            Top -= 4;
+        }
     }
 }
