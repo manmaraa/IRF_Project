@@ -14,7 +14,8 @@ namespace ManhertzMartinBeadando
 {
     public partial class Form1 : Form
     {
-        double kerek = 0;
+        //double kerek = 0;
+        bool end = false;
         bool megtalalta = false;
         int r=0;
         bool megy = false;
@@ -96,10 +97,44 @@ namespace ManhertzMartinBeadando
 
 
         }
+       void Vege()
+        {
+            if (end == true)
+            {
+
+            
+                foreach (var ball in _balls1)
+                {
+                    MessageBox.Show("Vesztettél, a játéknak vége, a folytatáshoz kezdj új játékot!");
+
+                    panel1.Controls.Remove(ball);
+                    panel1.Controls.Clear();
+                    ball.Left = 10;
+                    ball.Top = 10;
+                    megy = false;
+                end = false;
+                break;
+                }
+                foreach (var cel1 in _celok)
+                {
+                _celok.Remove(cel1);
+                    /* cel1.Left = 2000;
+                     cel1.Top = 2000;
+                     */
+                    break;
+                }
+                R();
+            }
+
+        }
 
       
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+          
+                Vege();
+            
+            
             if (megtalalta==true)
             {
                 foreach (var ball in _balls1)
@@ -151,6 +186,11 @@ namespace ManhertzMartinBeadando
                     {
                         ball.MoveBallDown();
                     }
+                   if (ball.Top >= panel1.Height-50 )
+                    {
+                        end = true;
+                       // MessageBox.Show("VÉGE");
+                    }
                 }
                 return true;
             }
@@ -166,9 +206,15 @@ namespace ManhertzMartinBeadando
                 }
                 foreach (var ball in _celok)
                 {
-                    if (ball.Top >= 0)
+                    if (ball.Top <= panel1.Height - 50)
                     {
                         ball.MoveBallUp();
+                    }
+                   
+                    if (ball.Top <= 0)
+                    {
+                        end = true;
+                      //  MessageBox.Show("VÉGE");
                     }
                 }
                 return true;
@@ -185,9 +231,14 @@ namespace ManhertzMartinBeadando
                 }
                 foreach (var ball in _celok)
                 {
-                    if (ball.Top >= 0)
+                    if (ball.Left <= panel1.Width-50)
                     {
                         ball.MoveBallRight();
+                    }
+                    if (ball.Left>= panel1.Width - 50)
+                    {
+                        end = true;
+                       // MessageBox.Show("vége");
                     }
                 }
                 return true;
@@ -204,9 +255,14 @@ namespace ManhertzMartinBeadando
                 }
                 foreach (var ball in _celok)
                 {
-                    if (ball.Top >= 0)
+                    if (ball.Left >= 0)
                     {
                         ball.MoveBallLeft();
+                    }
+                    if (ball.Left<=0)
+                    {
+                        end = true;
+                       // MessageBox.Show("vége");
                     }
                 }
                 return true;
@@ -223,6 +279,11 @@ namespace ManhertzMartinBeadando
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Kattintson az \"új játék\" gombra, a játék elkezdéséhez. A nyilakkal irányítsa a kék golyót, hogy megtalálja a pirosat. De vigyázz a piros golyó is mozog!!! Amint a kék golyóval ráment a piros golyóra Ön győzött. A piros golyó minden játék alkalmával más-más pozíciót vesz fel");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
