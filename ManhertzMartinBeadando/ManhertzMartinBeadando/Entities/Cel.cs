@@ -10,12 +10,17 @@ namespace ManhertzMartinBeadando.Entities
 {
    public class Cel:Label
     {
+       public int speedB = 1;
+        public int speedJ = 1;
+        public int speedF = 1;
+        public int speedL = 1;
         public Cel()
         {
             AutoSize = false;
             Width = 50;
             Height = Width;
             Paint += Ball_Paint;
+            
         }
 
         private void Ball_Paint(object sender, PaintEventArgs e)
@@ -34,19 +39,19 @@ namespace ManhertzMartinBeadando.Entities
         }
         public void MoveBallLeft()
         {
-            Left -= 4;
+            Left -= speedB;
         }
         public void MoveBallRight()
         {
-            Left += 4;
+            Left += speedJ;
         }
         public void MoveBallDown()
         {
-            Top += 4;
+            Top += speedL;
         }
         public void MoveBallUp()
         {
-            Top -= 4;
+            Top -= speedF;
         }
     }
 }
