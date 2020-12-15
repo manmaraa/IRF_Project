@@ -37,17 +37,13 @@ namespace ManhertzMartinBeadando
             get { return _factory; }
             set { _factory = value;
                
-                    foreach (var ball in _balls1)
+                    
+                    if (megtalalta == false)
                     {
-                    if (megy == true)
-                    {
-                        ball.BackColor = Color.Green;
+                        button2.BackColor = Color.White;
                     }
-                    else
-                    {
-                        ball.BackColor = Color.Yellow;
-                    }
-                }
+                  
+                
                 
             }
         }
@@ -63,14 +59,17 @@ namespace ManhertzMartinBeadando
         public Form1()
         {
             InitializeComponent();
+            button1.Visible = false;
+            button6.Visible = false; ;
             Factory = new BallFactory();
             CFactory = new CelFactory();
             //List<int> x = new List<int>();
             R();
-           
-           
+             
+
         }
-     void R()
+     
+        void R()
         {
 
             XmlDocument xDoc = new XmlDocument();
@@ -82,19 +81,21 @@ namespace ManhertzMartinBeadando
 
                 foreach (XmlElement item in xkoordinata)
             {
-                for (int i = 0; i < 53; i++)
-                {
+               // for (int i = 0; i < 53; i++)
+                
 
                 
-                    yHely = Convert.ToInt32(ykoordinata[i].InnerText);
+                    yHely = Convert.ToInt32(ykoordinata[r].InnerText);
                    xHely = Convert.ToInt32(xkoordinata[r].InnerText);
-                }
+                
 
             }  
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            button1.Visible = false;
+            button6.Visible = true;
+
             if (megy == false)
             {
 
@@ -184,9 +185,10 @@ namespace ManhertzMartinBeadando
 
                     panel1.Controls.Remove(ball);
                     panel1.Controls.Clear();
+                    panel1.Refresh();
                     ball.Left = 10;
                     ball.Top = 10;
-
+                   
                     megy = false;
                 end = false;
                 break;
@@ -202,8 +204,9 @@ namespace ManhertzMartinBeadando
             }
 
         }
+       
 
-      
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
           
@@ -212,6 +215,10 @@ namespace ManhertzMartinBeadando
             
             if (megtalalta==true)
             {
+                  
+                
+                    button2.BackColor = Color.Yellow;
+                
                 foreach (var ball in _balls1)
                 { 
                     MessageBox.Show("Gratulálunk megtaláltad a labdát");
@@ -228,10 +235,10 @@ namespace ManhertzMartinBeadando
                 {
                    // cel1.Left = 2000;
                    // cel1.Top =2000 ;
-                    panel1.Controls.Remove(cel1);
+                   // panel1.Controls.Remove(cel1);
                     
                 }
-                _celok.Clear();
+              //  _celok.Clear();
                 R();
                 megtalalta = false;
             }
@@ -241,10 +248,10 @@ namespace ManhertzMartinBeadando
                 {
 
                 
-                if (cel.Left-ball.Left <=25&&  cel.Top-ball.Top <= 25 && ball.Top-cel.Top <= 25&&  ball.Left-cel.Left <= 25)
+                if (cel.Left-ball.Left <=40&&  cel.Top-ball.Top <= 40 && ball.Top-cel.Top <= 40&&  ball.Left-cel.Left <= 40)
                 {
                     megtalalta = true;
-                    
+                        
                     
                 }
                 }
@@ -357,7 +364,10 @@ namespace ManhertzMartinBeadando
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Kattintson az \"új játék\" gombra, a játék elkezdéséhez. A nyilakkal irányítsa a kék golyót, hogy megtalálja a pirosat. De vigyázz a piros golyó is mozog!!! Amint a kék golyóval ráment a piros golyóra Ön győzött. A piros golyó minden játék alkalmával más-más pozíciót vesz fel. Ha a piros golyó a pálya széléhez ér, vesztettél!");
+            MessageBox.Show("1. A játék elkezdéséhez válasszon nehézségi szintet.\r\n" +
+                "2. Kattintson Az \"Indítás\" gombra. \r\n" +
+                "3. A nyilakkal irányítsa a nyilakkal a kék golyót, hogy megtalálja a pirosat. De vigyázz a piros golyó is mozog!!! Amint a kék golyóval ráment a piros golyóra Ön győzött. \r\n" +
+                " A piros golyó minden játék alkalmával más-más pozíciót vesz fel. Ha a piros golyó a pálya széléhez ér, vesztettél!");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -368,7 +378,11 @@ namespace ManhertzMartinBeadando
 
         private void button5_Click(object sender, EventArgs e)
         {
-         
+            button1.Visible = true;
+            /* Panel panel1 = new Panel();
+             this.Controls.Remove(panel1);
+             this.Controls.Add(panel1);*/
+           // Application.Restart();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -379,6 +393,11 @@ namespace ManhertzMartinBeadando
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
