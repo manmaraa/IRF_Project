@@ -29,6 +29,8 @@ namespace ManhertzMartinBeadando
 
        // private List<Ball> _balls2 = new List<Ball>();
         private List<Cel> _celok = new List<Cel>();
+       /* var cel = CFactory.CreateNew();
+        _celok.Add(cel);*/
         private BallFactory _factory;
         public BallFactory Factory
         {
@@ -95,9 +97,9 @@ namespace ManhertzMartinBeadando
            
             if (megy == false)
             {
-              
-              //  MessageBox.Show("Keresse meg a kék golyóval a pirosat a győzelem érdekében!!");
 
+                //  MessageBox.Show("Keresse meg a kék golyóval a pirosat a győzelem érdekében!!");
+               // _celok.Clear();
                 var ball = Factory.CreateNew();
                 ball.Left = 10;
                 ball.Top = 10;
@@ -184,17 +186,17 @@ namespace ManhertzMartinBeadando
                     panel1.Controls.Clear();
                     ball.Left = 10;
                     ball.Top = 10;
+
                     megy = false;
                 end = false;
                 break;
                 }
                 foreach (var cel1 in _celok)
                 {
-                _celok.Remove(cel1);
-                    /* cel1.Left = 2000;
-                     cel1.Top = 2000;
-                     */
-                    break;
+               // _celok.Remove(cel1);
+                    cel1.Left = xHely;
+                    cel1.Top = yHely;
+                   // break;
                 }
                 R();
             }
@@ -239,7 +241,7 @@ namespace ManhertzMartinBeadando
                 {
 
                 
-                if (cel.Left-ball.Left <=50&&  cel.Top-ball.Top <= 50 && ball.Top-cel.Top <= 50&&  ball.Left-cel.Left <= 50)
+                if (cel.Left-ball.Left <=25&&  cel.Top-ball.Top <= 25 && ball.Top-cel.Top <= 25&&  ball.Left-cel.Left <= 25)
                 {
                     megtalalta = true;
                     
