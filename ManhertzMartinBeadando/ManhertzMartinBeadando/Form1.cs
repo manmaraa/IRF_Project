@@ -73,7 +73,7 @@ namespace ManhertzMartinBeadando
         {
 
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load("koordinatak.xml");
+            xDoc.Load("Adatok/koordinatak.xml");
             XmlNodeList xkoordinata = xDoc.GetElementsByTagName("X");
             XmlNodeList ykoordinata = xDoc.GetElementsByTagName("Y");
 
