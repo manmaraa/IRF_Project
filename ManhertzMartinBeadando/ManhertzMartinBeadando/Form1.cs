@@ -79,8 +79,8 @@ namespace ManhertzMartinBeadando
 
             r = rnd.Next(0, 53);
 
-                foreach (XmlElement item in xkoordinata)
-            {
+               // foreach (XmlElement item in xkoordinata)
+           // {
                // for (int i = 0; i < 53; i++)
                 
 
@@ -89,7 +89,7 @@ namespace ManhertzMartinBeadando
                    xHely = Convert.ToInt32(xkoordinata[r].InnerText);
                 
 
-            }  
+           // }  
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -364,7 +364,7 @@ namespace ManhertzMartinBeadando
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1. A játék elkezdéséhez válasszon nehézségi szintet.\r\n" +
+            MessageBox.Show("1. A játék elkezdéséhez válasszon nehézségi szintet. ( ha nem választasz akkor \"Kezdő\" lesz automatikusan.\r\n" +
                 "2. Kattintson Az \"Indítás\" gombra. \r\n" +
                 "3. A nyilakkal irányítsa a nyilakkal a kék golyót, hogy megtalálja a pirosat. De vigyázz a piros golyó is mozog!!! Amint a kék golyóval ráment a piros golyóra Ön győzött. \r\n" +
                 " A piros golyó minden játék alkalmával más-más pozíciót vesz fel. Ha a piros golyó a pálya széléhez ér, vesztettél!");
